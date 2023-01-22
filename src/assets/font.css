@@ -1,0 +1,38 @@
+
+@font-face {
+    font-family: 'iransans';
+    src: url('./font/iransans/woff2/iransansweb(fanum).woff2') format('woff2'),
+         url('./font/iransans/woff/iransansweb(fanum).woff') format('woff');
+    font-weight: 400;
+    font-style : normal;
+}
+@font-face {
+    font-family: 'iransans';
+    src: url('./font/iransans/woff2/iransansweb(fanum)_black.woff2') format('woff2'),
+         url('./font/iransans/woff/iransansweb(fanum)_black.woff') format('woff');
+    font-weight: 800;
+    font-style : normal;
+}
+
+@font-face {
+    font-family: 'iransans';
+    src: url('./font/iransans/woff2/iransansweb(fanum)_bold.woff2') format('woff2'),
+         url('./font/iransans/woff/iransansweb(fanum)_bold.woff') format('woff');
+    font-weight: 600;
+    font-style : normal;
+}
+@font-face {
+    font-family: 'iransans';
+    src: url('./font/iransans/woff2/iransansweb(fanum)_light.woff2') format('woff2'),
+         url('./font/iransans/woff/iransansweb(fanum)_light.woff') format('woff');
+    font-weight: 300;
+    font-style : normal;
+}
+@font-face {
+    font-family: 'iransans';
+    src: url('./font/iransans/woff2/iransansweb(fanum)_medium.woff2') format('woff2'),
+         url('./font/iransans/woff/iransansweb(fanum)_medium.woff') format('woff');
+    font-weight: 500;
+    font-style : normal;
+}
+

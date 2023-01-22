@@ -1,0 +1,22 @@
+export const BOOK_ACTION_TYPE = {
+    FILE            : 'FILE',
+    BOOK_LOADED     : 'BOOK_LOADED',
+    PAGES_LOADED    : 'PAGES_LOADED',
+    CURRENT_PAGE    : 'CURRENT_PAGE',
+    RESET_CANVAS    : 'RESET_CANVAS',
+    IS_IMAGE_BOOK   : 'IS_IMAGE_BOOK'
+}
+
+export const PEN_ACTION_TYPE = {
+    TOOL_CHANGE   : 'TOOL_CHANGE',
+    COLOR_CHANGE  : 'COLOR_CHANGE',
+    SIZE_CHANGE   : 'SIZE_CHANGE',
+    ACTIVE_CHANGE : 'ACTIVE_CHANGE',
+    BOOK_SCALE_X  : 'BOOK_SCALE_X',
+    BOOK_SCALE_Y  : 'BOOK_SCALE_Y',
+}
+
+export const WEBCAM_ACTOIN_TYPE = {
+    IS_ACTIVE : "IS_ACTIVE",
+    SET_SIZE  : 'SET_SIZE'
+}

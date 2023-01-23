@@ -23,6 +23,7 @@ export const PenIconContainer = styled.div`
     flex-direction: column-reverse;
     align-items: center;
     padding-top: 1rem;
+    background: gray;
 
     @media screen and ( max-height : ${ APP_STYLES.MediaQueries.height }) {
         margin-bottom: 0;
@@ -61,6 +62,7 @@ export const PenToolsToolbar = styled.div`
     margin-bottom: calc( ${buttonSize} + 2rem) !important;
     user-select: none;
     width: 100%;
+    background-color: gray;
 
     @media screen and ( max-height : ${ APP_STYLES.MediaQueries.height }) {
         margin-bottom: calc( ${buttonSize} + 1rem ) !important;
@@ -142,19 +144,21 @@ export const CircleColorPicker = styled.span`
 `
 
 export const PenToolsItem = styled.span`
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 3rem;
+    height: 3rem;
     font-size: 1rem;
-    background: #F5F5FA;
+    background:#F5F5FA ;
     color: #3d6dbd;
     margin-top: 1rem;
     border-radius: 100%;
     transition: all .2s;
-    box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(205, 205, 236, 0.25), -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(205, 205, 236, 0.5);
+    /* box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(205, 205, 236, 0.25), -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(205, 205, 236, 0.5); */
+    box-shadow:0px 20px 30px 0 rgba(0, 0, 0, 0.5);
 
-    &:hover{
+
+    /* &:hover{
         box-shadow: -2px -4px 4px rgb(255 255 255 / 50%), 2px 2px 4px rgb(205 205 236 / 25%), -5px -5px 10px #ffffff, 0px 0px 3px rgb(205 205 236 / 50%);
-    }
+    } */
 `
 
 export const CircleSizePicker = styled.span`

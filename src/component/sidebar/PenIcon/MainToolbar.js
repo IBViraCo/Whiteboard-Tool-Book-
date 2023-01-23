@@ -6,10 +6,11 @@ import {
     faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import WhiteboardContext from "../../../contexts/WhiteboardContext";
-import PenContext from "../../../contexts/PenContext";
 import BookContexts from "../../../contexts/BookContexts";
+import PenContext from "../../../contexts/PenContext";
 import actionCreator from "../../../actions/actionCreator";
 import { BOOK_ACTION_TYPE } from "../../../config/action_type";
+import trash from '../../../assets/icons/trash.svg';
 
 function MainToolbar ({ setToolbar }){
     const [ reset, setReset ]       = WhiteboardContext.useWhiteboardContext();
@@ -26,10 +27,13 @@ function MainToolbar ({ setToolbar }){
     return (
             <>
                 <span onClick={ () => handleResetWhiteboard() } className="pointer pen-tool-chooser d-flex justify-content-center flex-column align-items-center">
-                    <FontAwesomeIcon icon={faXmark} className="mb-1" />
-                    از نو                           
+                    {/* <FontAwesomeIcon icon={faXmark} className="mb-1" /> */}
+                    <img src={trash}   />
+                    {/* از نو                            */}
                 </span>
-                <span onClick={ () => setToolbar( PENT_TOOLBAR_TYPES.color ) } id="color-picker-tool" className="pointer pen-tool-chooser d-flex justify-content-center flex-column align-items-center">
+
+
+                {/* <span onClick={ () => setToolbar( PENT_TOOLBAR_TYPES.color ) } id="color-picker-tool" className="pointer pen-tool-chooser d-flex justify-content-center flex-column align-items-center">
                     <FontAwesomeIcon icon={faPalette} className="mb-1" />
                     رنگ                             
                 </span>
@@ -40,7 +44,7 @@ function MainToolbar ({ setToolbar }){
                 <span onClick={ () => setToolbar( PENT_TOOLBAR_TYPES.size ) } id="size-picker-tool" className="pointer pen-tool-chooser circle-choose-sizes-button d-flex justify-content-center flex-column align-items-center" data-buton-type="size">
                     <span className="change_color_to_size_btn_parent_property circle-choose-sizes-icon d-inline-block"></span>
                     سایز                              
-                </span>
+                </span> */}
                     
             </>   
     );

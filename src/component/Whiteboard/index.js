@@ -5,7 +5,7 @@ import React from "react";
 import withPaintWrapper from "../../HOC/withPaintWrapper";
 import ThemeContexts from "../../contexts/ThemeContexts";
 import WhiteboardContext from "../../contexts/WhiteboardContext";
-
+import Pagination from '../Pagination';
 const Whiteboard = ({
     pen,
     isPaintStart,
@@ -116,6 +116,8 @@ const Whiteboard = ({
                     theme={theme}
                 />
             { textInputs }
+            <Pagination/>
+
             
         </WhiteboardContainer>
     )

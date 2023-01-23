@@ -8,6 +8,7 @@ import actionCreator from "../actions/actionCreator";
 import { PEN_ACTION_TYPE } from "../config/action_type";
 import { motion } from "framer-motion";
 import CloseButton from "../component/CloseIcon";
+import Pagination from '../component/Pagination';
 
 const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
    

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboard } from '@fortawesome/free-solid-svg-icons';
 import themeContexts from '../../contexts/ThemeContexts';
 import { THEME_NAMES } from '../../config/config';
+import screen from '../../assets/icons/screen.svg';
 export default () => {
     const [ theme, setTheme ] = themeContexts.useThemeContext();
 
@@ -15,7 +16,8 @@ export default () => {
  
     return (
         <SidebarButton onClick={themeHandler} >
-            <FontAwesomeIcon icon={faChalkboard} />
+            {/* <FontAwesomeIcon icon={faChalkboard} /> */}
+            <img src={screen} alt="" />
         </SidebarButton>
     )
     

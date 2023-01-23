@@ -31,6 +31,11 @@ export const SidebarButton = styled(Button)`
     box-shadow: inset -2px -2px 4px #ffffff, inset 2px 2px 4px rgb(205 205 236 / 25%), inset 2px 5px 10px rgb(205 205 236 / 80%), inset -2px -5px 5px #ffffff;
     position: relative;
     z-index: 2;
+    padding: 30px;
+    border: 1px solid #1D3B76;
+    border-radius: 100% ;
+    background:#F5F5FA ;
+    box-shadow:0px 20px 30px 0 rgba(0, 0, 0, 0.5);
 
     &:hover , 
     &:focus  {

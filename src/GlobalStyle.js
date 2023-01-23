@@ -143,6 +143,9 @@ export default createGlobalStyle`
         transition: all .2s;
     }
 
+    
+  
+
     @media screen and ( max-height : ${ APP_STYLES.MediaQueries.height }) {
         .circle-choose-sizes-button {
             font-size: .8rem;

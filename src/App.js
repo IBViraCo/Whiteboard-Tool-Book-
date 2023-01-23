@@ -47,7 +47,8 @@ function App() {
     className="App" 
     id="appContainer"
     style={{
-      background: `${ appBackground !== 'none' ? `url("${ base_url + 'images/' + appBackground }" ) 0 0 / cover no-repeat` : 'inherit'}`,
+      // background: `${ appBackground !== 'none' ? `url("${ base_url + 'images/' + appBackground }" ) 0 0 / cover no-repeat` : 'inherit'}`,
+      backgroundColor:'gray'
     }}
     onClick={changeBackground}
     >
@@ -57,17 +58,17 @@ function App() {
             <PenContext.penContext.Provider value={[ penState, penDispatch ]}>
               <BookContexts.bookContext.Provider value={[ bookState, bookDispatch ]}>
                 <WebcamContext.webcamContext.Provider value={[webcamState, webcamDispatch]}>
-
                   <InputTextProvider>
+
                     {/* <Sidebar />  */}
                     {/* <Book /> */}
                     {/* <Slider /> */}
-                    <Whiteboard >
-                      <Webcam />    
-                    </Whiteboard>
+                      {/* <Webcam />     */}
+                 
+                    <Whiteboard />
                       <Sidebar/>
-                  </InputTextProvider>
 
+                  </InputTextProvider>
                 </WebcamContext.webcamContext.Provider>
               </BookContexts.bookContext.Provider>
             </PenContext.penContext.Provider>

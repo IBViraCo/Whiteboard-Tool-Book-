@@ -11,10 +11,28 @@ import { enableFlipBook } from '../../helper';
 import BookArrows from './BookArrows';
 import ThemIcon from './themIcon';
 import AddBookButton from '../Book/AddBookButton';
+import ToolToolbar from './PenIcon/ToolToolbar';
+
+
+
+import PenContext from '../../contexts/PenContext';//////////////////////////////add
+import PenToolbar from './PenIcon/PenToolbar';//////////////////////////////add
+import { faPenNib } from '@fortawesome/free-solid-svg-icons';//////////////////////////////add
+import MainToolbar from './PenIcon/MainToolbar';
 
 
 export default  () => {
     const [ bookState ]       = BookContexts.useBookContext();
+
+
+
+
+    const [ penState, penDispatch ] = PenContext.usePenContext();/////////////add
+    const [ penIcon, setPenIcon ]  = React.useState(faPenNib);////////////////add
+
+   
+   
+
     
     const handlePrev = () => {
         enableFlipBook();
@@ -30,20 +48,24 @@ export default  () => {
             className="sidebar"
         >
 
-            <WebcamIcon />
+            {/* <WebcamIcon /> */}
 
-            <RecorderIcon />
+            {/* <RecorderIcon /> */}
 
-            <Cursor />
+            {/* <Cursor /> */}
             
             { bookState.isBookLoaded && <AddBookButton isSidebar={true} />  } 
 
 
             { bookState.isBookLoaded && bookState.bookData.length > 1 && <BookArrows handlePrev={handlePrev} handleNext={handleNext} />  } 
 
-            <ThemIcon />
+            {/* <ThemIcon /> */}
+           
+           
+            <ToolToolbar  penState={penState} penDispatch={penDispatch} setPenIcon={setPenIcon} />
+
             
-           <PenIcon />
+           {/* <PenIcon /> */}
             
         </SidebarContainer>
     )

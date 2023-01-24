@@ -4,10 +4,12 @@ import { faChalkboard } from '@fortawesome/free-solid-svg-icons';
 import themeContexts from '../../contexts/ThemeContexts';
 import { THEME_NAMES } from '../../config/config';
 import screen from '../../assets/icons/screen.svg';
-export default () => {
+import { PenToolsItem } from './PenIcon/style';
+export default ({setIsModal}) => {
     const [ theme, setTheme ] = themeContexts.useThemeContext();
 
-    const themeHandler = () => {
+    const themeHandler = (e) => {
+        setIsModal(false)
         Object.values(THEME_NAMES).forEach( (themeName, i, array) => {
             const nextTheme = array[ i+1 ] ? array[ i+1 ] : array[0];
             if( themeName === theme ) setTheme(nextTheme);
@@ -15,10 +17,10 @@ export default () => {
     }
  
     return (
-        <SidebarButton onClick={themeHandler} >
+        <PenToolsItem onClick={themeHandler} >
             {/* <FontAwesomeIcon icon={faChalkboard} /> */}
             <img src={screen} alt="" />
-        </SidebarButton>
+        </PenToolsItem>
     )
     
 }

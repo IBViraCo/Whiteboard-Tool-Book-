@@ -20,10 +20,7 @@ export default () => {
             
             <PenToolbar setPenIcon={setPenIcon} />
         
-            {/* <FontAwesomeIcon icon={penIcon} style={{color:'yellow', padding:'3rem 0' }}/>
-            <FontAwesomeIcon icon={penIcon} style={{color:'red'   , paddingTop:'3rem'}}/>
-            <FontAwesomeIcon icon={penIcon} style={{color:'green' , paddingTop:'2rem'}}/>
-            <FontAwesomeIcon icon={penIcon} style={{color:'black'  , paddingTop:'3rem'}}/> */}
+         
             <PenIconButton 
                 onClick={ () => { actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : !penState.isActive }) } }
                 className={`position-absolute ${ penState.isActive ? 'active-pen-icon' : '' }`}

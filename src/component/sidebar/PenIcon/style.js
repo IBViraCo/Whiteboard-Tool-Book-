@@ -68,19 +68,27 @@ export const PenToolsToolbar = styled.div`
         margin-bottom: calc( ${buttonSize} + 1rem ) !important;
     }
 `
-
-export const CircleColorPicker = styled.span`
-    width: 1.6rem;
-    height: 1.6rem;
+export const CircleColorContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content:center;
+`
+export const CircleColorPicker = styled.div`
+    width: 1.75rem;
+    height: 1.75rem;
     border-radius: 100%;
     margin-top: 1rem;
     position: relative;
     transition: all .2s;
+    margin-left:1rem ;
+    border: 1px solid aqua;
     
+/*     
     &:hover{
         width   : 1.3rem;
         height  : 1.3rem;
-    }
+    } */
 
     &.red{
         background-color: ${APP_STYLES.colors.danger};
@@ -132,7 +140,7 @@ export const CircleColorPicker = styled.span`
         visibility: visible;
     }
 
-    @media screen and ( max-height : ${ APP_STYLES.MediaQueries.height }) {
+    /* @media screen and ( max-height : ${ APP_STYLES.MediaQueries.height }) {
         width: 1rem;
         height: 1rem;
 
@@ -140,9 +148,31 @@ export const CircleColorPicker = styled.span`
             width   : .75rem;
             height  : .75rem;
         }
-    }
+    } */
 `
 
+export const ToolsItem = styled.span`
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+    background:#F5F5FA ;
+    color: #3d6dbd;
+    margin-top: 1rem;
+    border-radius: 100%;
+    transition: all .2s;
+    /* box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(205, 205, 236, 0.25), -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(205, 205, 236, 0.5); */
+    box-shadow:0px 20px 30px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* position: relative; */
+
+
+    /* &:hover{
+        box-shadow: -2px -4px 4px rgb(255 255 255 / 50%), 2px 2px 4px rgb(205 205 236 / 25%), -5px -5px 10px #ffffff, 0px 0px 3px rgb(205 205 236 / 50%);
+    } */
+`
 export const PenToolsItem = styled.span`
     width: 3rem;
     height: 3rem;
@@ -154,6 +184,11 @@ export const PenToolsItem = styled.span`
     transition: all .2s;
     /* box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(205, 205, 236, 0.25), -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(205, 205, 236, 0.5); */
     box-shadow:0px 20px 30px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
 
 
     /* &:hover{

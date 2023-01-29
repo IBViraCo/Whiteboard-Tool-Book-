@@ -30,7 +30,7 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
         const { last_poseX, last_poseY } = lastMovePose;
         const size = ( penState.tool === 'eraser' || penState.tool === 'highlight' ) ? penState.size + ( Math.PI )  : penState.size;
 
-        const color = ( penState.tool === 'highlight' ) ? PEN_STATICS.highlightColors[penState.color] : penState.color;
+        const color = ( penState.tool === 'highlight' ) ? `${penState.color}80` : penState.color;
 
         const scaleX = e.target.getAttribute('id') === 'whiteboardCanvas' ? penState.whiteboardScaleX : 1;
         const scaleY = e.target.getAttribute('id') === 'whiteboardCanvas' ? penState.whiteboardScaleY : 1;
@@ -57,6 +57,7 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
     }
 
     const mouseDownHandler = (e, canvasEl) => {
+        console.log('clllllickDOwn')
         //check pen active
         if(!penState.isActive) return;
 
@@ -70,6 +71,7 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
     }
 
     const mouseUpHandler = (e, canvasEl) => {
+        console.log('clllllickUP')
         //check pen active
         if(!penState.isActive) return;
 
@@ -182,7 +184,7 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
                 drag: true,
                 dragConstraints,
                 dragElastic: 0,
-                whileDrag: { opacity: .7 },
+                whileDrag: { opacity: .9 },
                 dragTransition: {
                     power: 0
                 },

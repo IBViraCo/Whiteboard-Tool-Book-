@@ -12,6 +12,7 @@ import useBookState from "./state/bookState";
 import usePenState from "./state/penState";
 import useWebcamState from "./state/webcamState";
 import ThemeContexts from "./contexts/ThemeContexts";
+import ModalsContext from './contexts/ModalsContext';
 import Slider from "./component/Slider";
 import WhiteboardContext from "./contexts/WhiteboardContext";
 import { APP_CONFIG, base_url } from "./config/config";
@@ -38,9 +39,9 @@ function App() {
   }
 
   //check access camera and init
-  React.useEffect(() => {
-    initializeMedia( webcamDispatch );
-  }, []);
+  // React.useEffect(() => {
+    // initializeMedia( webcamDispatch );
+  // }, []);
 
   return (
     <Row 
@@ -48,11 +49,12 @@ function App() {
     id="appContainer"
     style={{
       // background: `${ appBackground !== 'none' ? `url("${ base_url + 'images/' + appBackground }" ) 0 0 / cover no-repeat` : 'inherit'}`,
-      backgroundColor:'gray'
+      backgroundColor:'#fff'
     }}
     onClick={changeBackground}
     >
         {/* <Logo /> */}
+        <ModalsContext.ModalsContextProvider >
         <ThemeContexts.ThemeContextProvider >
           <WhiteboardContext.WhiteboardContextProvider>
             <PenContext.penContext.Provider value={[ penState, penDispatch ]}>
@@ -74,6 +76,7 @@ function App() {
             </PenContext.penContext.Provider>
           </WhiteboardContext.WhiteboardContextProvider>
         </ThemeContexts.ThemeContextProvider>
+        </ModalsContext.ModalsContextProvider>
     </Row>
   );
 }

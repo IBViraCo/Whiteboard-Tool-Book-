@@ -23,6 +23,7 @@ const Whiteboard = ({
     const [ penState ]              = PenContext.usePenContext();
     const [ bookState ]             = BookContexts.useBookContext();
     const [ theme ]                 = ThemeContexts.useThemeContext();
+
     const canvasEl = React.useRef();
     
     const [ context, setContext ] = React.useState();
@@ -30,11 +31,11 @@ const Whiteboard = ({
 
     const setCanvas = () => {
         const canvas = document.getElementById('whiteboardCanvas');
-        canvasEl.current = canvas;
+        canvasEl.current = canvas;                                     
     }
 
     const resetWhiteboard = () => {
-        setCanvas();
+        // setCanvas();
         const canvasContext = initContext(canvasEl.current);
         setContext(canvasContext);
         setTextInputs([])
@@ -55,12 +56,12 @@ const Whiteboard = ({
 
 
     //refresh canvas size by add book
-    React.useEffect(() => {
-        if(!bookState.isBookLoaded) return;
+    // React.useEffect(() => {
+    //     if(!bookState.isBookLoaded) return;
 
-        resetWhiteboard();
+    //     resetWhiteboard();
 
-    }, [bookState.isBookLoaded])
+    // }, [bookState.isBookLoaded])
 
     //reset whiteboard on click reste button
     React.useEffect( () => {
@@ -76,6 +77,7 @@ const Whiteboard = ({
         const new_line_data = getNewLineData(e, canvasEl);
 
         drawLine(context, new_line_data);
+        
     }
 
     const mouseMoveHandler = (e, canvasEl) => {
@@ -106,20 +108,23 @@ const Whiteboard = ({
 
     const chooseEvents = penState.tool === 'text' ? { ...onTextEvents } : { ...onPenEvents }
     return (
-        <WhiteboardContainer id='whiteboardContainer'> 
-            {children}
-            <WhiteBoard 
+    <>
+  
+        <WhiteboardContainer id='whiteboardContainer'>  
+            {children} 
+            <WhiteBoard                                   //////////////////////        Canvas
                     id='whiteboardCanvas'
                     ref={canvasEl} 
                     pen={penState} 
                     { ...chooseEvents }
                     theme={theme}
-                />
-            { textInputs }
-            <Pagination/>
+                /> 
+             { textInputs } 
+             <Pagination/>
 
             
-        </WhiteboardContainer>
+         </WhiteboardContainer>
+        </>
     )
 }
 

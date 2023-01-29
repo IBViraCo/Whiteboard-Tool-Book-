@@ -9,6 +9,7 @@ export default () => {
   return (
     <Pagination onClick={() => setIsActive(!isActive)} isActive={isActive} >
       <img src={vector} />
+      
     </Pagination>
   )
 }

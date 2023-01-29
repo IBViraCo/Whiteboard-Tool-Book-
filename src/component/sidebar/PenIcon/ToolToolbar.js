@@ -27,11 +27,13 @@ import ThemIcon from '../themIcon';
 import ColorToolbar from './ColorToolbar';
 import ModalsColor from '../../../UI/ModalsColor';
 import React from 'react';
+import ModalsContext from '../../../contexts/ModalsContext';
 
 
 const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
-    const [isModal , setIsModal] = React.useState(false)
+    const [isModalColor , setIsModalColor] = ModalsContext.useModalsContext()
+
 
     const [ reset, setReset ]       = WhiteboardContext.useWhiteboardContext();
     const [ bookState, bookDispatch ] = BookContexts.useBookContext();
@@ -59,13 +61,13 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
         e.preventDefault()
              
         if (e.type === "contextmenu"  ){
-            setIsModal(!isModal)
+            setIsModalColor(!isModalColor)
         }
         if(e.type === 'click'){
             actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.pen });
             actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.black } )
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : true })
-            setIsModal(false)
+            // setIsModal(false)
         }
     
     }
@@ -73,8 +75,6 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
     return (
         <>
-
-    
              
         <PenToolsItem 
         onContextMenu={rightClickModalHandler}
@@ -82,42 +82,42 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
             className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.pen ? 'active-pen-icon' : ''}`} >
                 <FontAwesomeIcon icon={faPenNib} style={{color:'black' }} />
                     {
-                        isModal?<ModalsColor>
+                        isModalColor?<ModalsColor >
                             <ColorToolbar/>
                         </ModalsColor>:null
                     }
-
         </PenToolsItem>
 
+
         <PenToolsItem onClick={ () => {
-            
             actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.pen });
             actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.green } )
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : true })
-            setIsModal(false)
         } } className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.pen ? 'active-pen-icon' : ''}`} >
                 <FontAwesomeIcon icon={faPenNib} style={{color:'#06BD0D' }} />
             </PenToolsItem>
+
 
         <PenToolsItem onClick={ () => {
               actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.pen });
             actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.red } )
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : true })
-            setIsModal(false)
 
         } } className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.pen ? 'active-pen-icon' : ''}`} >
                 <FontAwesomeIcon icon={faPenNib} style={{color:'#FF0000' }} />
             </PenToolsItem>
 
+
             <PenToolsItem onClick={ () => {
+                
                  actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.highlight });
                 actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.yellow } )
                 actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : true })
-               setIsModal(false)
 
             } } className={`pointer d-inline pen-tools-tool-item pen-tools-highlight d-flex justify-content-center align-items-center ${penState.tool === PEN_STATICS.tools.highlight ? 'active-pen-icon' : ''}`} >
                 {/* <FontAwesomeIcon icon={faHighlighter} /> */}
                 <img src={highlighter} />
+
             </PenToolsItem>
 
 
@@ -125,7 +125,6 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
 
             <ToolsItem onClick={ () =>{
-                setIsModal(false)
                 ToolClickHandler(PEN_STATICS.tools.eraser, faEraser)
 
                 } } className={`pointer d-inline pen-tools-tool-item pen-tools-eraser d-flex justify-content-center align-items-center ${penState.tool === PEN_STATICS.tools.eraser ? 'active-pen-icon' : ''}`} >
@@ -134,10 +133,12 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
             </ToolsItem>
 
+
+
+
            <ToolsItem onClick={ () =>{ 
             
             handleResetWhiteboard()
-            setIsModal(false)
 
             } } className="pointer pen-tool-chooser d-flex justify-content-center flex-column align-items-center">
                     {/* <FontAwesomeIcon icon={faXmark} className="mb-1" /> */}
@@ -146,14 +147,17 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
                     <img src={trash} />
            </ToolsItem>
 
+
+
            <ToolsItem onClick={()=>{
-            setIsModal(false)
            }}>
            <img src={shape}  />
            </ToolsItem>
 
+
+
+
            <ToolsItem onClick={()=>{
-            setIsModal(false)
            }}>
            <img src={pic}  />
 
@@ -175,10 +179,11 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
                 <FontAwesomeIcon icon={faTools}/>
                 ابزار             
             </span> */}
-               <ThemIcon  setIsModal={setIsModal}/>
+               <ThemIcon   />
 
                {/* <ColorToolbar setToolbar={setToolbar} penState={penState} penDispatch={penDispatch} /> */}
                {/* <ModalsColor/> */}
+
         </>
     )
 }

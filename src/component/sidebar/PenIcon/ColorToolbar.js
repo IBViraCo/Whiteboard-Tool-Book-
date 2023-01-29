@@ -1,12 +1,14 @@
 import { PEN_STATICS, THEME_NAMES } from './../../../config/config'
 import { CircleColorContainer, CircleColorPicker } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTools } from '@fortawesome/free-solid-svg-icons'
+import { faDisplay, faTools } from '@fortawesome/free-solid-svg-icons'
 import { PEN_ACTION_TYPE } from '../../../config/action_type'
 import actionCreator from '../../../actions/actionCreator'
 import ThemeContexts from '../../../contexts/ThemeContexts'
 import { useEffect } from 'react'
 import PenContext from '../../../contexts/PenContext'
+
+import Ellipse from '../../../assets/icons/Ellipse.png'
 
 const ColorToolbar = () => {
   const [theme] = ThemeContexts.useThemeContext()
@@ -22,9 +24,7 @@ const ColorToolbar = () => {
           isActive: true,
         })
       }}
-      className={`pointer circle-color-picker pen-color-parent-property ${
-        PEN_STATICS.colors.black
-      } ${
+      className={`pointer circle-color-picker pen-color-parent-property black ${
         penState.color === PEN_STATICS.colors.black ? 'active-color-picker' : ''
       }`}
     >
@@ -44,9 +44,7 @@ const ColorToolbar = () => {
           isActive: true,
         })
       }}
-      className={`pointer circle-color-picker pen-color-parent-property ${
-        PEN_STATICS.colors.white
-      } ${
+      className={`pointer circle-color-picker pen-color-parent-property white ${
         penState.color === PEN_STATICS.colors.white ? 'active-color-picker' : ''
       }`}
     >
@@ -66,7 +64,11 @@ const ColorToolbar = () => {
 
   return (
     <>
-      <CircleColorContainer>
+      <CircleColorContainer
+        onClick={(e) => {
+          e.stopPropagation()
+        }}
+      >
         <CircleColorPicker
           onClick={(e) => {
             e.stopPropagation()
@@ -77,9 +79,7 @@ const ColorToolbar = () => {
               isActive: true,
             })
           }}
-          className={`pointer circle-color-picker pen-color-parent-property ${
-            PEN_STATICS.colors.red
-          } ${
+          className={`pointer circle-color-picker pen-color-parent-property red ${
             penState.color === PEN_STATICS.colors.red
               ? 'active-color-picker'
               : ''
@@ -87,6 +87,7 @@ const ColorToolbar = () => {
         >
           &nbsp;
         </CircleColorPicker>
+
         <CircleColorPicker
           onClick={(e) => {
             e.stopPropagation()
@@ -98,9 +99,7 @@ const ColorToolbar = () => {
               isActive: true,
             })
           }}
-          className={`pointer circle-color-picker pen-color-parent-property ${
-            PEN_STATICS.colors.green
-          } ${
+          className={`pointer circle-color-picker pen-color-parent-property green ${
             penState.color === PEN_STATICS.colors.green
               ? 'active-color-picker'
               : ''
@@ -108,6 +107,7 @@ const ColorToolbar = () => {
         >
           &nbsp;
         </CircleColorPicker>
+
         <CircleColorPicker
           onClick={(e) => {
             e.stopPropagation()
@@ -118,10 +118,9 @@ const ColorToolbar = () => {
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, {
               isActive: true,
             })
+            console.log(penState)
           }}
-          className={`pointer circle-color-picker pen-color-parent-property ${
-            PEN_STATICS.colors.blue
-          } ${
+          className={`pointer circle-color-picker pen-color-parent-property blue ${
             penState.color === PEN_STATICS.colors.blue
               ? 'active-color-picker'
               : ''
@@ -129,6 +128,50 @@ const ColorToolbar = () => {
         >
           &nbsp;
         </CircleColorPicker>
+
+        <CircleColorPicker
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+          onChange={(e) => {
+            actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, {
+              color: e.target.value,
+            })
+            actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, {
+              isActive: true,
+            })
+            console.log(penState)
+          }}
+        >
+          <label
+            htmlFor="color_pallette"
+            style={{
+              width: '1.6rem',
+              height: '1.6rem',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <img src={Ellipse} />
+          </label>
+
+          <input
+            type="color"
+            id="color_pallette"
+            style={{
+              cursor: 'pointer',
+              width: '1.6rem',
+              height: '1.6rem',
+              opacity: '0',
+              position: 'absolute',
+              top: '0%',
+              left: '0%',
+            }}
+          />
+          {/* <img src={Ellipse}  /> */}
+        </CircleColorPicker>
+
         <CircleColorPicker
           onClick={(e) => {
             e.stopPropagation()
@@ -140,9 +183,7 @@ const ColorToolbar = () => {
               isActive: true,
             })
           }}
-          className={`pointer circle-color-picker pen-color-parent-property ${
-            PEN_STATICS.colors.yellow
-          } ${
+          className={`pointer circle-color-picker pen-color-parent-property yellow ${
             penState.color === PEN_STATICS.colors.yellow
               ? 'active-color-picker'
               : ''
@@ -150,8 +191,10 @@ const ColorToolbar = () => {
         >
           &nbsp;
         </CircleColorPicker>
+
         <BlackColor />
-        {theme !== THEME_NAMES.whiteboard ? <WhiteColor /> : ''}
+
+        {/* {theme !== THEME_NAMES.whiteboard ? <WhiteColor /> : ''} */}
 
         {/* <span
                 onClick={() => setToolbar('main') }  
@@ -162,6 +205,24 @@ const ColorToolbar = () => {
                 <FontAwesomeIcon icon={faTools}/>
                 ابزار             
             </span> */}
+
+        <div>
+          <input
+            type="range"
+            onChange={(e) => {
+              actionCreator(penDispatch, PEN_ACTION_TYPE.SIZE_CHANGE, {
+                size: PEN_STATICS.sizes[e.target.value],
+              })
+              actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, {
+                isActive: true,
+              })
+            }}
+            min={1}
+            max={3}
+            defaultValue={2}
+            style={{ direction: 'ltr', marginTop: '1rem' }}
+          />
+        </div>
       </CircleColorContainer>
     </>
   )

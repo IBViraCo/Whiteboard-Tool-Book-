@@ -69,20 +69,28 @@ export const PenToolsToolbar = styled.div`
     }
 `
 export const CircleColorContainer = styled.div`
+width: 100%;
+height: 100%;
 display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content:center;
+
 `
 export const CircleColorPicker = styled.div`
     width: 1.75rem;
     height: 1.75rem;
     border-radius: 100%;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     position: relative;
     transition: all .2s;
-    margin-left:1rem ;
+    margin: 0.5rem 0.5rem;
     border: 1px solid aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
     
 /*     
     &:hover{

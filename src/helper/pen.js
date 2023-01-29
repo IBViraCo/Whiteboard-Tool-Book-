@@ -2,7 +2,6 @@ import { isTouchDevice } from "./../helper/index";
 const getNewPosition = (e, canvasEl, scale = 1) =>{
     if(!e || !canvasEl) return;
     const canvasPosition = canvasEl.getBoundingClientRect();
-
     const currentXPose = isTouchDevice() && !e.pointerType  ? e.touches[0].clientX : e.clientX; 
     const currentYPose = isTouchDevice() && !e.pointerType  ? e.touches[0].clientY : e.clientY; 
 

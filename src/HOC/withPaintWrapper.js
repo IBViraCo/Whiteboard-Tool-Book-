@@ -57,7 +57,6 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
     }
 
     const mouseDownHandler = (e, canvasEl) => {
-        console.log('clllllickDOwn')
         //check pen active
         if(!penState.isActive) return;
 
@@ -71,7 +70,6 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
     }
 
     const mouseUpHandler = (e, canvasEl) => {
-        console.log('clllllickUP')
         //check pen active
         if(!penState.isActive) return;
 

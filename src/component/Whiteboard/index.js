@@ -77,7 +77,6 @@ const Whiteboard = ({
         const new_line_data = getNewLineData(e, canvasEl);
 
         drawLine(context, new_line_data);
-        
     }
 
     const mouseMoveHandler = (e, canvasEl) => {

@@ -28,11 +28,13 @@ import ColorToolbar from './ColorToolbar';
 import ModalsColor from '../../../UI/ModalsColor';
 import React from 'react';
 import ModalsContext from '../../../contexts/ModalsContext';
+import AddBookButton from '../../Book/AddBookButton';
 
 
 const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
-    const [isModalColor , setIsModalColor] = ModalsContext.useModalsContext()
+    const [isModalColor , setIsModalColor,isModalBackground,setIsModalBackground] = ModalsContext.useModalsContext()
+
 
 
     const [ reset, setReset ]       = WhiteboardContext.useWhiteboardContext();
@@ -47,6 +49,7 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
     }
 
     const handleResetWhiteboard = () => {
+        console.log(reset)
         if(reset) return;
         
         actionCreator(bookDispatch, BOOK_ACTION_TYPE.RESET_CANVAS, { resetCanvasPage : bookState.currentPage })
@@ -75,10 +78,12 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
     return (
         <>
+
+
              
         <PenToolsItem 
-        onContextMenu={rightClickModalHandler}
-        onClick={ rightClickModalHandler }
+            onContextMenu={rightClickModalHandler}
+            onClick={ rightClickModalHandler }
             className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.pen ? 'active-pen-icon' : ''}`} >
                 <FontAwesomeIcon icon={faPenNib} style={{color:'black' }} />
                     {
@@ -89,26 +94,26 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
         </PenToolsItem>
 
 
-        <PenToolsItem onClick={ () => {
+        <ToolsItem onClick={ () => {
             actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.pen });
             actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.green } )
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : true })
         } } className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.pen ? 'active-pen-icon' : ''}`} >
                 <FontAwesomeIcon icon={faPenNib} style={{color:'#06BD0D' }} />
-            </PenToolsItem>
+            </ToolsItem>
 
 
-        <PenToolsItem onClick={ () => {
+        <ToolsItem onClick={ () => {
               actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.pen });
             actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.red } )
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : true })
 
         } } className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.pen ? 'active-pen-icon' : ''}`} >
                 <FontAwesomeIcon icon={faPenNib} style={{color:'#FF0000' }} />
-            </PenToolsItem>
+            </ToolsItem>
 
 
-            <PenToolsItem onClick={ () => {
+            <ToolsItem onClick={ () => {
                 
                  actionCreator(penDispatch, PEN_ACTION_TYPE.TOOL_CHANGE, { tool : PEN_STATICS.tools.highlight });
                 actionCreator(penDispatch, PEN_ACTION_TYPE.COLOR_CHANGE, { color : PEN_STATICS.colors.yellow } )
@@ -118,7 +123,7 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
                 {/* <FontAwesomeIcon icon={faHighlighter} /> */}
                 <img src={highlighter} />
 
-            </PenToolsItem>
+            </ToolsItem>
 
 
 
@@ -134,8 +139,6 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
             </ToolsItem>
 
 
-
-
            <ToolsItem onClick={ () =>{ 
             
             handleResetWhiteboard()
@@ -148,23 +151,42 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
            </ToolsItem>
 
 
-
            <ToolsItem onClick={()=>{
+                window.location.reload();
+
            }}>
+      
+
            <img src={shape}  />
+ 
            </ToolsItem>
 
 
 
-
-           <ToolsItem onClick={()=>{
+           {/* <ToolsItem onClick={()=>{
            }}>
            <img src={pic}  />
 
-           </ToolsItem>
+           </ToolsItem> */}
+           
+           {/* <AddBookButton isSidebar={true}/> */}
 
 
-            
+           <ThemIcon   />
+
+
+
+
+           
+           <ToolsItem><AddBookButton isSidebar={true} /></ToolsItem> 
+
+
+           {/* <button
+           onClick={()=>{
+            actionCreator(bookDispatch,BOOK_ACTION_TYPE.FILE,{bookData :[]})
+           }}
+           >white board</button>
+             */}
         
           
             {/* <PenToolsItem onClick={ () => ToolClickHandler(PEN_STATICS.tools.text, faFont) } className={`pointer d-inline pen-tools-tool-item pen-tools-pen d-flex justify-content-center align-items-center  ${penState.tool === PEN_STATICS.tools.text ? 'active-pen-icon' : ''}`} >
@@ -179,7 +201,7 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
                 <FontAwesomeIcon icon={faTools}/>
                 ابزار             
             </span> */}
-               <ThemIcon   />
+             
 
                {/* <ColorToolbar setToolbar={setToolbar} penState={penState} penDispatch={penDispatch} /> */}
                {/* <ModalsColor/> */}

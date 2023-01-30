@@ -54,15 +54,21 @@ export default  () => {
 
             {/* <Cursor /> */}
             
-            { bookState.isBookLoaded && <AddBookButton isSidebar={true} />  } 
-
-
-            { bookState.isBookLoaded && bookState.bookData.length > 1 && <BookArrows handlePrev={handlePrev} handleNext={handleNext} />  } 
 
             {/* <ThemIcon /> */}
            
            
+            { bookState.isBookLoaded && bookState.bookData.length > 1 && <BookArrows handlePrev={handlePrev} handleNext={handleNext} />  } 
+           
+           
             <ToolToolbar  penState={penState} penDispatch={penDispatch} setPenIcon={setPenIcon} />
+
+
+
+            {/* { bookState.isBookLoaded && <AddBookButton isSidebar={true} />  }  */}
+
+            
+
 
             
            {/* <PenIcon /> */}

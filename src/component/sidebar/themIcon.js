@@ -14,10 +14,11 @@ import selectionBackgroundGridX from '../../assets/icons/selection-backgroundGri
 import selectionBackgroundGridY from '../../assets/icons/selection-backgroundGrid-Y.svg'
 
 
-export default () => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default  () => {
     const [ theme, setTheme ] = themeContexts.useThemeContext();
 
-    const [isModalBackground ,setIsModalBackground ] = ModalsContext.useModalsContext()
+    const [isModalColor , setIsModalColor,isModalBackground,setIsModalBackground ] = ModalsContext.useModalsContext()
 
     const themeHandler = (e) => {
         if (e.type === "contextmenu"  ){
@@ -39,11 +40,10 @@ export default () => {
             {
                 isModalBackground? 
                 <ModalsBackground 
-              
-              
                 >
 
-                            <CircleColorContainer onClick={(e)=>{e.stopPropagation()}} >
+                        <CircleColorContainer onClick={(e)=>{e.stopPropagation()}} >
+
                                 <CircleColorPicker onClick={(e)=>{
                                     e.stopPropagation()
                                     setTheme(THEME_NAMES.greenBoard)
@@ -90,16 +90,16 @@ export default () => {
 
 
                                 <CircleColorPicker 
-                                onClick={(e)=>{
-                                    e.stopPropagation()
+                                    onClick={(e)=>{
+                                        e.stopPropagation()
 
-                                }}
+                                    }}
                                 >
                                  <img src={selectionBackgroundGridY}/>
                                 </CircleColorPicker>
 
                                 
-                            </CircleColorContainer>
+                        </CircleColorContainer>
 
                 </ModalsBackground>
                 :null

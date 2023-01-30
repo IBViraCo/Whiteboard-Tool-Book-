@@ -163,7 +163,9 @@ export const ToolsItem = styled.span`
     width: 3rem;
     height: 3rem;
     font-size: 1rem;
-    background:#F5F5FA ;
+    /* background:#F5F5FA ; */
+    background: ${APP_STYLES.colors.background};
+
     color: #3d6dbd;
     margin-top: 1rem;
     border-radius: 100%;
@@ -185,7 +187,9 @@ export const PenToolsItem = styled.span`
     width: 3rem;
     height: 3rem;
     font-size: 1rem;
-    background:#F5F5FA ;
+    /* background:#F5F5FA ; */
+    background: ${APP_STYLES.colors.background};
+
     color: #3d6dbd;
     margin-top: 1rem;
     border-radius: 100%;
@@ -199,9 +203,9 @@ export const PenToolsItem = styled.span`
     position: relative;
 
 
-    /* &:hover{
+    &:hover{
         box-shadow: -2px -4px 4px rgb(255 255 255 / 50%), 2px 2px 4px rgb(205 205 236 / 25%), -5px -5px 10px #ffffff, 0px 0px 3px rgb(205 205 236 / 50%);
-    } */
+    }
 `
 
 export const CircleSizePicker = styled.span`

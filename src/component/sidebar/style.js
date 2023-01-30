@@ -4,15 +4,16 @@ import { APP_STYLES } from '../../GlobalStyle';
 
 
 export const SidebarContainer = styled.section`
-    width: 5rem;
+    width: 6%;
     display : flex;
     flex-direction: column;
     align-items: center;
     max-height: 100%;
+  
 `
 
-export const buttonSize = '3rem';
-export const buttonMargin = '1rem';
+export const buttonSize = '0.5rem';
+export const buttonMargin = '0.5rem';
 export const SidebarButton = styled(Button)`
     border-radius: 100%;
     overflow: hidden;
@@ -31,7 +32,7 @@ export const SidebarButton = styled(Button)`
     box-shadow: inset -2px -2px 4px #ffffff, inset 2px 2px 4px rgb(205 205 236 / 25%), inset 2px 5px 10px rgb(205 205 236 / 80%), inset -2px -5px 5px #ffffff;
     position: relative;
     z-index: 2;
-    padding: 30px;
+    padding: 1.5rem;
     border: 1px solid #1D3B76;
     border-radius: 100% ;
     background:#F5F5FA ;

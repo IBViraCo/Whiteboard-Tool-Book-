@@ -3,7 +3,7 @@ import { Col } from 'reactstrap';
 import { APP_STYLES } from '../../GlobalStyle';
 import { buttonMargin, buttonSize } from '../sidebar/style';
 
-const addBookButtonSize = '4rem';
+const addBookButtonSize = '3.2rem';
 export const BookContainer = styled(Col).attrs({
     sm : 12,
     md : 'auto',
@@ -11,8 +11,10 @@ export const BookContainer = styled(Col).attrs({
 })`
     user-select: none;
     height: 100%;
-    min-width: ${ (props) => !props.isbookloaded ? "15rem" : 'auto' };
-    max-width : 50%; 
+    /* width:80%; */
+    min-width:94%;
+    /* min-width: ${ (props) => !props.isbookloaded ? "95%" : 'auto' }; */
+    max-width : 75%; 
     padding : 1rem;
     border-radius: ${APP_STYLES.Sizes.borderRadius};
     box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(205, 205, 236, 0.25), inset 5px 5px 10px rgba(205, 205, 236, 0.5), inset -5px -5px 10px #FFFFFF;
@@ -35,11 +37,12 @@ export const AddBookBtn = styled.label.attrs({
     align-items: center;
     background: ${APP_STYLES.colors.background};
     box-shadow: ${ ({isSidebar}) => isSidebar ? `inset -2px -2px 4px #ffffff, inset 2px 2px 4px rgb(205 205 236 / 25%), inset 2px 5px 10px rgb(205 205 236 / 80%), inset -2px -5px 5px #ffffff` : `-2px -2px 4px rgba(255, 255, 255, 0.5), 2px 2px 4px rgba(205, 205, 236, 0.25), -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(205, 205, 236, 0.5)`};
-    border: 1px solid transparent;
+    border: 1px solid gray;
     color : ${APP_STYLES.colors.dark};
-    align-self: ${ (props) => props.isSidebar ? 'center' : 'end' };
+    /* margin-top:2rem; */
+    /* align-self: ${ (props) => props.isSidebar ? 'center' : 'end' }; 
     margin: ${ (props) => props.isSidebar ? 'unset' : '1rem' };
-    margin-bottom: ${ (props) => props.isSidebar ? buttonMargin : 'unset' };
+     margin-bottom: ${ (props) => props.isSidebar ? buttonMargin : 'unset' };  */ */
 
     &:hover  {
         color: ${({isSidebar}) => isSidebar ? `var(--bs-primary)` : 'inherit'};

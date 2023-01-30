@@ -6,6 +6,7 @@ import withPaintWrapper from "../../HOC/withPaintWrapper";
 import ThemeContexts from "../../contexts/ThemeContexts";
 import WhiteboardContext from "../../contexts/WhiteboardContext";
 import Pagination from '../Pagination';
+import AddBookButton from '../Book/AddBookButton';
 const Whiteboard = ({
     pen,
     isPaintStart,
@@ -56,12 +57,12 @@ const Whiteboard = ({
 
 
     //refresh canvas size by add book
-    // React.useEffect(() => {
-    //     if(!bookState.isBookLoaded) return;
+    React.useEffect(() => {
+        if(!bookState.isBookLoaded) return;
 
-    //     resetWhiteboard();
+        resetWhiteboard();
 
-    // }, [bookState.isBookLoaded])
+    }, [bookState.isBookLoaded])
 
     //reset whiteboard on click reste button
     React.useEffect( () => {
@@ -71,7 +72,7 @@ const Whiteboard = ({
         setReset(false);
         setTextInputs([])
         
-    }, [ reset ])
+    }, [reset])
 
     const draw = (e, canvasEl) => {
         const new_line_data = getNewLineData(e, canvasEl);

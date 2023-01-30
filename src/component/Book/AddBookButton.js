@@ -7,6 +7,8 @@ import React from 'react'
 import BookContexts from '../../contexts/BookContexts'
 import Alert from '../Alert'
 import AppLoading from '../AppLoading'
+import vector from '../../assets/icons/Vector.svg'
+import pic from '../../assets/icons/pic.svg'
 
 
 export default ({ isSidebar = false }) => {
@@ -42,7 +44,8 @@ export default ({ isSidebar = false }) => {
       />
 
       <AddBookBtn isSidebar={isSidebar} data-test="add-file">
-        <FontAwesomeIcon icon={faPlus} />
+        {/* <FontAwesomeIcon icon={faPlus} /> */}
+        <img src={pic} />
       </AddBookBtn>
     </>
   )

@@ -118,7 +118,6 @@ const ColorToolbar = () => {
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, {
               isActive: true,
             })
-            console.log(penState)
           }}
           className={`pointer circle-color-picker pen-color-parent-property blue ${
             penState.color === PEN_STATICS.colors.blue
@@ -140,7 +139,7 @@ const ColorToolbar = () => {
             actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, {
               isActive: true,
             })
-            console.log(penState)
+        
           }}
         >
           <label
@@ -194,18 +193,6 @@ const ColorToolbar = () => {
 
         <BlackColor />
 
-        {/* {theme !== THEME_NAMES.whiteboard ? <WhiteColor /> : ''} */}
-
-        {/* <span
-                onClick={() => setToolbar('main') }  
-                id="tools-chooser" 
-                className="pointer circle-choose-sizes-button d-flex flex-column align-items-center pt-2" 
-                data-buton-type="size"
-                >
-                <FontAwesomeIcon icon={faTools}/>
-                ابزار             
-            </span> */}
-
         <div>
           <input
             type="range"
@@ -223,6 +210,20 @@ const ColorToolbar = () => {
             style={{ direction: 'ltr', marginTop: '1rem' }}
           />
         </div>
+
+        {/* {theme !== THEME_NAMES.whiteboard ? <WhiteColor /> : ''} */}
+
+        {/* <span
+                onClick={() => setToolbar('main') }  
+                id="tools-chooser" 
+                className="pointer circle-choose-sizes-button d-flex flex-column align-items-center pt-2" 
+                data-buton-type="size"
+                >
+                <FontAwesomeIcon icon={faTools}/>
+                ابزار             
+            </span> */}
+
+      
       </CircleColorContainer>
     </>
   )

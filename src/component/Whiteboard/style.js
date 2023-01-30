@@ -17,6 +17,7 @@ export const WhiteboardContainer = styled(Col).attrs({
     justify-content: center;
     padding: 0.5rem;
     background-color: ${APP_STYLES.colors.background};
+    width:100%;
 `
 
 const selectTheme = (theme) => Object.values(THEME_NAMES).find( themeName => themeName === theme );

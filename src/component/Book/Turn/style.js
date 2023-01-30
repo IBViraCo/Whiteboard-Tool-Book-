@@ -10,8 +10,9 @@ export const PageImage = styled.img.attrs( ({page, index}) => ({
     background-repeat: no-repeat;
     background-size: 65%; 
     background-position: center; 
-    width: 100%; 
-    height: 100%;
+    width: auto; 
+    height: auto;
+    max-width: 100%;
 `
 
 export const PaintPage = styled.canvas.attrs( (page, index) => ({
@@ -34,6 +35,10 @@ export const FlipBookContainer = styled.div`
     height : 100%;
     overflow: hidden;
     border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 `
 
 export const FlipBook = styled.div.attrs({
@@ -41,12 +46,21 @@ export const FlipBook = styled.div.attrs({
     id : 'bookContainerMain'
 })`
     height: 100%;
-    transform: ${ ({ zoomScale, translateBook }) => `scale(${(+zoomScale).toFixed(1)}) translate(${(+translateBook.x).toFixed(1)}px, ${(+translateBook.y).toFixed(1)}px) !important` }
+    transform: ${ ({ zoomScale, translateBook }) => `scale(${(+zoomScale).toFixed(1)}) translate(${(+translateBook.x).toFixed(1)}px, ${(+translateBook.y).toFixed(1)}px) !important` };
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
 `
 
 export const PageContainer = styled.div.attrs((index) => ({
     className : index === 0 ? 'hard' : ''
 }))`
     height : 100%;
-    min-width: 15rem;
+    width: 95%;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    
 `

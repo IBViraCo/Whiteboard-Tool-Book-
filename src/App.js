@@ -18,7 +18,10 @@ import WhiteboardContext from "./contexts/WhiteboardContext";
 import { APP_CONFIG, base_url } from "./config/config";
 import { InputTextProvider } from './contexts/TextInputContexts';
 import Logo from "./component/Logo";
+import { ToolsItem } from './component/sidebar/PenIcon/style';
 
+
+import getNewPosition from './helper/pen'
 
 function App() {
   const [ bookState, bookDispatch ]     = useBookState()
@@ -43,6 +46,14 @@ function App() {
     // initializeMedia( webcamDispatch );
   // }, []);
 
+
+// const infoHandler = () => {
+  
+// }
+
+
+
+
   return (
     <Row 
     className="App" 
@@ -63,12 +74,14 @@ function App() {
                   <InputTextProvider>
 
                     {/* <Sidebar />  */}
-                    <Book />
+                    {/* <Book /> */}
                     {/* <Slider /> */}
                       {/* <Webcam />     */}
                  
-                    {/* <Whiteboard /> */}
+                    <Whiteboard />
                       <Sidebar/>
+                      {/* <button onClick={infoHandler}>info</button> */}
+         
 
                   </InputTextProvider>
                 </WebcamContext.webcamContext.Provider>

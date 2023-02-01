@@ -12,10 +12,13 @@ import ModalsContext from '../../contexts/ModalsContext';
 import selectionBackgroundGridXY from '../../assets/icons/selection-backgroundGrid-X&Y.svg'
 import selectionBackgroundGridX from '../../assets/icons/selection-backgroundGrid-X.svg'
 import selectionBackgroundGridY from '../../assets/icons/selection-backgroundGrid-Y.svg'
+import grid from '../../helper/grid'
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  () => {
+
+    const {gridXFixing,gridYFixing,gridXYFixing }= grid    
     const [ theme, setTheme ] = themeContexts.useThemeContext();
 
     const [isModalColor , setIsModalColor,isModalBackground,setIsModalBackground ] = ModalsContext.useModalsContext()
@@ -72,6 +75,7 @@ export default  () => {
                                 <CircleColorPicker
                                 onClick={(e)=>{
                                     e.stopPropagation()
+                                    gridXYFixing()
 
                                 }}
                                 >
@@ -82,7 +86,7 @@ export default  () => {
                                 <CircleColorPicker  
                                 onClick={(e)=>{
                                     e.stopPropagation()
-
+                                    gridXFixing()
                                 }}
                                 >
                                  <img src={selectionBackgroundGridX}/>
@@ -92,7 +96,7 @@ export default  () => {
                                 <CircleColorPicker 
                                     onClick={(e)=>{
                                         e.stopPropagation()
-
+                                        gridYFixing()
                                     }}
                                 >
                                  <img src={selectionBackgroundGridY}/>

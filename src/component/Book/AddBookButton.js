@@ -46,7 +46,7 @@ export default ({ isSidebar = false }) => {
       <AddBookBtn isSidebar={isSidebar} data-test="add-file">
         {/* <FontAwesomeIcon icon={faPlus} /> */}
         <img src={pic} />
-      </AddBookBtn>
+       </AddBookBtn>
     </>
   )
 }

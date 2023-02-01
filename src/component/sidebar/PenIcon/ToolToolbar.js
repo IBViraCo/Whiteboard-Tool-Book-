@@ -35,6 +35,7 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
     const [isModalColor , setIsModalColor,isModalBackground,setIsModalBackground] = ModalsContext.useModalsContext()
 
+    
 
 
     const [ reset, setReset ]       = WhiteboardContext.useWhiteboardContext();
@@ -74,6 +75,8 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
         }
     
     }
+
+   
 
 
     return (
@@ -172,15 +175,20 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
            {/* <AddBookButton isSidebar={true}/> */}
 
 
-           <ThemIcon   />
+        
 
 
 
 
            
            <ToolsItem><AddBookButton isSidebar={true} /></ToolsItem> 
+      
+
+           <ThemIcon   />
 
 
+
+         
            {/* <button
            onClick={()=>{
             actionCreator(bookDispatch,BOOK_ACTION_TYPE.FILE,{bookData :[]})

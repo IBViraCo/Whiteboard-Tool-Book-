@@ -17,12 +17,15 @@ export const WhiteboardContainer = styled(Col).attrs({
     justify-content: center;
     padding: 0.5rem;
     background-color: ${APP_STYLES.colors.background};
+    background-color:gray;
     width:100%;
 `
 
 const selectTheme = (theme) => Object.values(THEME_NAMES).find( themeName => themeName === theme );
 
-export const WhiteBoard = styled.canvas`
+export const WhiteBoard = styled.canvas.attrs({
+      id:'whiteboardCanvas'
+})`
     background-repeat: no-repeat; 
     background-position: center; 
     width: 100%; 

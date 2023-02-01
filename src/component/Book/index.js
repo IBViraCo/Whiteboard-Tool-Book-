@@ -11,10 +11,11 @@ import Whiteboard from '../Whiteboard'
 export default () => {
   const [bookState] = BookContexts.useBookContext()
 
-  // let content = <AddBookButton />
-  let content = <Whiteboard />
+  let content = <AddBookButton />
+  // let content = <Whiteboard />
 
   if (bookState.bookData && bookState.bookData.length) content = <Turn />
+  // let content = <Turn />
 
   return<Viewer content={content} />
 

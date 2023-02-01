@@ -7,6 +7,8 @@ import ThemeContexts from "../../contexts/ThemeContexts";
 import WhiteboardContext from "../../contexts/WhiteboardContext";
 import Pagination from '../Pagination';
 import AddBookButton from '../Book/AddBookButton';
+import Sidebar from '../sidebar';
+
 const Whiteboard = ({
     pen,
     isPaintStart,
@@ -29,11 +31,13 @@ const Whiteboard = ({
     
     const [ context, setContext ] = React.useState();
 
-
+  
     const setCanvas = () => {
         const canvas = document.getElementById('whiteboardCanvas');
         canvasEl.current = canvas;                                     
     }
+
+
 
     const resetWhiteboard = () => {
         // setCanvas();
@@ -41,6 +45,9 @@ const Whiteboard = ({
         setContext(canvasContext);
         setTextInputs([])
     }
+
+
+
 
     const clearCanvas = () => {
         context.clearRect( 0, 0, canvasEl.current.width, canvasEl.current.height);
@@ -110,7 +117,8 @@ const Whiteboard = ({
     return (
     <>
   
-        <WhiteboardContainer id='whiteboardContainer'>  
+        <WhiteboardContainer id='whiteboardContainer'> 
+        
             {children} 
             <WhiteBoard                                   //////////////////////        Canvas
                     id='whiteboardCanvas'
@@ -118,10 +126,11 @@ const Whiteboard = ({
                     pen={penState} 
                     { ...chooseEvents }
                     theme={theme}
-                /> 
+                >
+                   
+                    </WhiteBoard> 
              { textInputs } 
              <Pagination/>
-
             
          </WhiteboardContainer>
         </>

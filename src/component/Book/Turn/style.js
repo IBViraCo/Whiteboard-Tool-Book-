@@ -11,7 +11,7 @@ export const PageImage = styled.img.attrs( ({page, index}) => ({
     background-size: 65%; 
     background-position: center; 
     width: auto; 
-    height: auto;
+    height: 100%;
     max-width: 100%;
 `
 

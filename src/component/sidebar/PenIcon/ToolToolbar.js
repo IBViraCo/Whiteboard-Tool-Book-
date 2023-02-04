@@ -50,8 +50,8 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
     }
 
     const handleResetWhiteboard = () => {
-        console.log(reset)
-        if(reset) return;
+        // console.log(reset)
+        // if(reset) return;
         
         actionCreator(bookDispatch, BOOK_ACTION_TYPE.RESET_CANVAS, { resetCanvasPage : bookState.currentPage })
         

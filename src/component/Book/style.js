@@ -12,7 +12,7 @@ export const BookContainer = styled(Col).attrs({
     user-select: none;
     height: 100%;
     /* width:80%; */
-    min-width:30%;
+    min-width:94%;
     /* min-width: ${ (props) => !props.isbookloaded ? "95%" : 'auto' }; */
     max-width : 75%; 
     padding : 1rem;

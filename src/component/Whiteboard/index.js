@@ -8,6 +8,7 @@ import WhiteboardContext from "../../contexts/WhiteboardContext";
 import Pagination from '../Pagination';
 import AddBookButton from '../Book/AddBookButton';
 import Sidebar from '../sidebar';
+import modals from '../../contexts/ModalsContext'
 
 const Whiteboard = ({
     pen,
@@ -30,6 +31,8 @@ const Whiteboard = ({
     const canvasEl = React.useRef();
     
     const [ context, setContext ] = React.useState();
+    const[isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground] =modals.useModalsContext()
+
 
   
     const setCanvas = () => {
@@ -82,8 +85,10 @@ const Whiteboard = ({
     }, [reset])
 
     const draw = (e, canvasEl) => {
+        setIsModalColor(false)
+        setIsModalBackground(false)
         const new_line_data = getNewLineData(e, canvasEl);
-
+        
         drawLine(context, new_line_data);
     }
 

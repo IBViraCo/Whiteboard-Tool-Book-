@@ -8,7 +8,7 @@ import { APP_CONFIG, TurnJsConfigs } from "../../../config/config";
 import PenContext from "../../../contexts/PenContext";
 import withPaintWrapper from "../../../HOC/withPaintWrapper";
 import { isTouchDevice } from "../../../helper";
-
+import modals from '../../../contexts/ModalsContext'
 
 
 const Turn = ({
@@ -42,6 +42,8 @@ const Turn = ({
     const MainContainer                         = React.useRef();
     const zoomContainer                         = React.useRef();
     const [ isPinchStart, setIsPinchStart]      = React.useState(false)
+
+    const [isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground] = modals.useModalsContext()
 
     //init set pages loaded
     //init turnJs
@@ -80,7 +82,8 @@ const Turn = ({
     }, [ isPinchStart ])
   
     const draw = (e, canvasEl) => {
-      
+      setIsModalColor(false)
+      setIsModalBackground(false)
         const new_line_data = getNewLineData(e, canvasEl, zoomScale);
 
         const canvasId = +canvasEl.dataset.page;

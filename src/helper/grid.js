@@ -12,6 +12,7 @@
         }
         ctx.stroke(rectangle);
        
+       
       }
   }
     const gridYFixing = ()=>{

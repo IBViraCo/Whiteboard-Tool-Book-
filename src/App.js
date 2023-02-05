@@ -74,11 +74,11 @@ function App() {
                   <InputTextProvider>
 
                     {/* <Sidebar />  */}
-                    {/* <Book /> */}
+                    <Book />
                     {/* <Slider /> */}
                       {/* <Webcam />     */}
                  
-                    <Whiteboard />
+                    {/* <Whiteboard /> */}
                       <Sidebar/>
                       {/* <button onClick={infoHandler}>info</button> */}
          

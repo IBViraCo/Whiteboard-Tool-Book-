@@ -206,7 +206,7 @@ const ColorToolbar = () => {
             }}
             min={1}
             max={3}
-            defaultValue={2}
+            defaultValue={1}
             style={{ direction: 'ltr', marginTop: '1rem' }}
           />
         </div>

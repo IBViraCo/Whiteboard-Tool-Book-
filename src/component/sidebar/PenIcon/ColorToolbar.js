@@ -65,6 +65,10 @@ const ColorToolbar = () => {
   return (
     <>
       <CircleColorContainer
+      onContextMenu={(e)=>{
+        e.preventDefault()
+        e.stopPropagation()
+      }}
         onClick={(e) => {
           e.stopPropagation()
         }}

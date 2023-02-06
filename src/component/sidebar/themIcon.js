@@ -45,7 +45,12 @@ export default  () => {
                 <ModalsBackground 
                 >
 
-                        <CircleColorContainer onClick={(e)=>{e.stopPropagation()}} >
+                        <CircleColorContainer 
+                        onContextMenu={(e)=>{
+                            e.preventDefault()
+                            e.stopPropagation()
+                        }}
+                        onClick={(e)=>{e.stopPropagation()}} >
 
                                 <CircleColorPicker onClick={(e)=>{
                                     e.stopPropagation()
@@ -55,6 +60,7 @@ export default  () => {
                                 </CircleColorPicker>
 
                                 <CircleColorPicker 
+                                isBorder={true}
                                 onClick={(e)=>{
                                     e.stopPropagation()
                                     setTheme(THEME_NAMES.whiteboard)

@@ -31,7 +31,7 @@ const Whiteboard = ({
     const canvasEl = React.useRef();
     
     const [ context, setContext ] = React.useState();
-    const[isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground] =modals.useModalsContext()
+    const[isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground,setIsModalShape , isModalShape] =modals.useModalsContext()
 
 
   
@@ -85,6 +85,7 @@ const Whiteboard = ({
     }, [reset])
 
     const draw = (e, canvasEl) => {
+        setIsModalShape(false)
         setIsModalColor(false)
         setIsModalBackground(false)
         const new_line_data = getNewLineData(e, canvasEl);

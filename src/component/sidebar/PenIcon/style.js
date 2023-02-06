@@ -85,7 +85,9 @@ export const CircleColorPicker = styled.div`
     position: relative;
     transition: all .2s;
     margin: 0.5rem 0.5rem;
-    border: 1px solid aqua;
+    /* border: 1px solid aqua; */
+    border: ${(props)=>props.isBorder?'1px solid aqua':'none'};
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,7 +178,7 @@ export const ToolsItem = styled.span`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    /* position: relative; */
+    position: relative;
 
 
     /* &:hover{

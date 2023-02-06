@@ -12,6 +12,7 @@ import modals from '../../../contexts/ModalsContext'
 
 
 const Turn = ({
+        myTag,
         pen,
         isPaintStart,
         setIsPaintStart,
@@ -43,7 +44,7 @@ const Turn = ({
     const zoomContainer                         = React.useRef();
     const [ isPinchStart, setIsPinchStart]      = React.useState(false)
 
-    const [isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground] = modals.useModalsContext()
+    const [isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground , setIsModalShape,isModalShape] = modals.useModalsContext()
 
     //init set pages loaded
     //init turnJs
@@ -82,6 +83,7 @@ const Turn = ({
     }, [ isPinchStart ])
   
     const draw = (e, canvasEl) => {
+     setIsModalShape(false)
       setIsModalColor(false)
       setIsModalBackground(false)
         const new_line_data = getNewLineData(e, canvasEl, zoomScale);

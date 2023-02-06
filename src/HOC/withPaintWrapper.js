@@ -11,6 +11,8 @@ import CloseButton from "../component/CloseIcon";
 import Pagination from '../component/Pagination';
 
 const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
+
+   
    
     
     const { getNewPosition} = pen;
@@ -217,6 +219,7 @@ const withPaintWrapper =  (WrappedComponent, isBook = false) => props => {
        
             <WrappedComponent 
                 {...props}  
+              
                 OnTextHandler={OnTextHandler}
                 textInputs={textInputs}
                 setTextInputs={setTextInputs}

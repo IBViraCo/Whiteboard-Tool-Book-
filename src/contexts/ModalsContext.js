@@ -19,9 +19,18 @@ const ModalsContextProvider = ({children}) => {
 
     const [isModalBackground ,setIsModalBackground ] = React.useState(false);
 
+    const [ setIsModalShape,isModalShape ] = React.useState(false);
+
     
     return(
-        <modalsContext.Provider value={[isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground]} >
+        <modalsContext.Provider value={[
+            isModalColor ,
+             setIsModalColor ,
+             isModalBackground ,
+              setIsModalBackground,
+              isModalShape,
+              setIsModalShape,
+              ]} >
             { children }
         </modalsContext.Provider>
     )

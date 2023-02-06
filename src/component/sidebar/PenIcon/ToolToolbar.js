@@ -29,11 +29,13 @@ import ModalsColor from '../../../UI/ModalsColor';
 import React from 'react';
 import ModalsContext from '../../../contexts/ModalsContext';
 import AddBookButton from '../../Book/AddBookButton';
+import ModalsShape from '../../../UI/ModalsShape';
+import DetailModalsShape from '../../../UI/ModalsShape/DetailModalsShape';
 
 
 const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
 
-    const [isModalColor , setIsModalColor,isModalBackground,setIsModalBackground] = ModalsContext.useModalsContext()
+    const [isModalColor , setIsModalColor,isModalBackground,setIsModalBackground ,setIsModalShape,isModalShape] = ModalsContext.useModalsContext()
 
     
 
@@ -74,6 +76,16 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
             // setIsModal(false)
         }
     
+    }
+    const rightClickModalShapeHandler =(e)=>{
+
+        e.preventDefault()
+        if (e.type === "contextmenu"  ){
+            setIsModalShape(!isModalShape)
+        }
+        
+      
+
     }
 
    
@@ -154,10 +166,16 @@ const ToolToolbar = ( { penState, penDispatch, setToolbar, setPenIcon } ) => {
            </ToolsItem>
 
 
-           <ToolsItem onClick={()=>{
-                window.location.reload();
-
-           }}>
+           <ToolsItem onClick={rightClickModalShapeHandler}
+            onContextMenu={rightClickModalShapeHandler}
+            >
+               {
+                   
+                   isModalShape ?<ModalsShape>
+                                    <DetailModalsShape/>
+                    
+                   </ModalsShape>:null
+               }
       
 
            <img src={shape}  />

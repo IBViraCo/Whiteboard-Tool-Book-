@@ -26,7 +26,7 @@ export const APP_CONFIG = {
 
 export const APP_MESSAGES = {
   invalidFile:
-    'لطفا فایل مدنظر خود را بصورت یک فایل pdf و یا چند jpg یا png وارد کنید',
+    'لطفاً فایل مد نظر خود را به صورت یک یا چند فایل عکس با پسوند jpg یا png یا jpeg وارد کنید',
 }
 
 export const PEN_STATICS = {

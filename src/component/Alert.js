@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Alert } from "reactstrap";
 
-export default ({msg, color, time=3000}) => {
+export default ({msg, color, time=8000}) => {
     const [ isVisible, setIsVisible ] = React.useState(true);
 
     React.useEffect(() => {

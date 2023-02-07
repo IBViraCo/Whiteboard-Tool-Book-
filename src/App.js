@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row } from "reactstrap";
 import Book from "./component/Book";
 import Sidebar from "./component/sidebar";
@@ -24,6 +24,7 @@ import { ToolsItem } from './component/sidebar/PenIcon/style';
 import getNewPosition from './helper/pen'
 
 function App() {
+  
   const [ bookState, bookDispatch ]     = useBookState()
   const [ penState, penDispatch ]       = usePenState();
   const [ webcamState, webcamDispatch]  = useWebcamState();
@@ -41,6 +42,9 @@ function App() {
 
   }
 
+ 
+  
+
   //check access camera and init
   // React.useEffect(() => {
     // initializeMedia( webcamDispatch );
@@ -55,6 +59,8 @@ function App() {
 
 
   return (
+
+ 
     <Row 
     className="App" 
     id="appContainer"
@@ -91,6 +97,7 @@ function App() {
         </ThemeContexts.ThemeContextProvider>
         </ModalsContext.ModalsContextProvider>
     </Row>
+ 
   );
 }
 

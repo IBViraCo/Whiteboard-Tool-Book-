@@ -23,7 +23,7 @@ export default ({ isSidebar = false }) => {
     <>
   
       {isInvalidFile ? (
-        <Alert msg={APP_MESSAGES.invalidFile} color="danger" />
+        <Alert msg={APP_MESSAGES.invalidFile} color="warning" />
       ) : (
         ''
       )}

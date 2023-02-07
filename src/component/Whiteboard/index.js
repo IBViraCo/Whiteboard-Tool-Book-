@@ -124,9 +124,8 @@ const Whiteboard = ({
     <>
   
         <WhiteboardContainer id='whiteboardContainer'> 
-        
             {children} 
-            <WhiteBoard                                   //////////////////////        Canvas
+            <WhiteBoard                                  
                     id='whiteboardCanvas'
                     ref={canvasEl} 
                     pen={penState} 

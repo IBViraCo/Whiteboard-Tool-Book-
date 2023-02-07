@@ -6,22 +6,23 @@ import { buttonMargin, buttonSize } from '../sidebar/style';
 const addBookButtonSize = '3.2rem';
 export const BookContainer = styled(Col).attrs({
     sm : 12,
-    md : 'auto',
-    tag: 'section'
+    md : 'auto', 
+    tag: 'section' 
 })`
     user-select: none;
     height: 100%;
-    /* width:80%; */
+    /* width:20%; */
     min-width:94%;
     /* min-width: ${ (props) => !props.isbookloaded ? "95%" : 'auto' }; */
     max-width : 75%; 
-    padding : 1rem;
+    padding : 1rem  0;
     border-radius: ${APP_STYLES.Sizes.borderRadius};
     box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(205, 205, 236, 0.25), inset 5px 5px 10px rgba(205, 205, 236, 0.5), inset -5px -5px 10px #FFFFFF;
     display: flex;
     justify-content: center;
     background-color: ${APP_STYLES.colors.background};
-`;
+    /* background-color:red; */
+`
 
 
 export const AddBookBtn = styled.label.attrs({

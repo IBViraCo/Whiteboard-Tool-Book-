@@ -37,12 +37,16 @@ const readFileData = (files) => {
   export const fileInputChangeHandler =async (e, {bookDispatch, setIsInvalidFile, setIsLoading}) => {
     e.preventDefault();
     const files = e.target.files
+
     const file = files[0];
+  
     const pdfFileType = APP_CONFIG.acceptFileType.split(',')[0].trim();
-    
-    if( !files.length || !file || !file.type || (file.type !== pdfFileType && checkIsNotImage(file)) ) return setIsInvalidFile(true);
+
+   
+    if( !files.length || !file || !file.type || (file.type === pdfFileType && checkIsNotImage(file)) ) return setIsInvalidFile(true);
 
     //check if is pdfFileType and multiple files
+    
     const isAllFilesAreImage = Array.from(files).every( file => {
       
       if( checkIsNotImage(file) ) return false
@@ -64,6 +68,7 @@ const readFileData = (files) => {
     
     const imagesData = isImageFileEntered ? await convertToImage(files) :  await convertPdfToImages(file);
 
+    console.log(imagesData)
     //dispatch to images 
     await actionCreator( bookDispatch, BOOK_ACTION_TYPE.FILE, imagesData );
 

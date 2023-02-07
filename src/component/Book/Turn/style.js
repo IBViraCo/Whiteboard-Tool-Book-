@@ -10,9 +10,14 @@ export const PageImage = styled.img.attrs( ({page, index}) => ({
     background-repeat: no-repeat;
     background-size: 65%; 
     background-position: center; 
-    width: auto; 
-    height: 100%;
+    width:auto; 
+    height: auto;
     max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+   
 `
 
 export const PaintPage = styled.canvas.attrs( (page, index) => ({
@@ -58,9 +63,11 @@ export const PageContainer = styled.div.attrs((index) => ({
     className : index === 0 ? 'hard' : ''
 }))`
     height : 100%;
-    width: 95%;
+    width: 100rem;
       display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: red; */
+   
     
 `

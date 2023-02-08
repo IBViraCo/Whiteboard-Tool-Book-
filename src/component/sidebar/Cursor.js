@@ -23,44 +23,45 @@ export default () => {
     } 
 
     const changeCursor = () => {
-        let nextCursor;
-        Object.keys(cursorIcons).forEach( (cursor, i, array) => {
-            if(cursor !== cursorIcon) return;
+        actionCreator(penDispatch , PEN_ACTION_TYPE.ACTIVE_CHANGE , {isActive: false})
+        // let nextCursor;
+        // Object.keys(cursorIcons).forEach( (cursor, i, array) => {
+        //     if(cursor !== cursorIcon) return;
 
-            const resultCursor = array[ i + 1 ];
-            nextCursor = resultCursor ? resultCursor : array[0];
-        });
-        setPrevCursor(cursorIcon);
-        setCursorIcon(nextCursor);
+        //     const resultCursor = array[ i + 1 ];
+        //     nextCursor = resultCursor ? resultCursor : array[0];
+        // });
+        // setPrevCursor(cursorIcon);
+        // setCursorIcon(nextCursor);
     }
 
-    const setCursor = () => {
-        document.body.classList.remove(prevCursor);
+    // const setCursor = () => {
+    //     document.body.classList.remove(prevCursor);
 
-        if(penState.isActive) return;
+    //     if(penState.isActive) return;
         
-        const bookCanvases = document.querySelectorAll('.flipBook canvas');
+    //     const bookCanvases = document.querySelectorAll('.flipBook canvas');
 
-        document.body.classList.add(cursorIcon);
-        document.getElementById('whiteboardCanvas').classList.remove(prevCursor);
-        document.getElementById('whiteboardCanvas').classList.add(cursorIcon);
-        if(!bookCanvases.length) return;
+    //     document.body.classList.add(cursorIcon);
+    //     document.getElementById('whiteboardCanvas').classList.remove(prevCursor);
+    //     document.getElementById('whiteboardCanvas').classList.add(cursorIcon);
+    //     if(!bookCanvases.length) return;
 
-        bookCanvases.forEach(canvas => {
-            canvas.classList.remove(prevCursor);
-            canvas.classList.add(cursorIcon);
-        })
+    //     bookCanvases.forEach(canvas => {
+    //         canvas.classList.remove(prevCursor);
+    //         canvas.classList.add(cursorIcon);
+    //     })
 
-    }
+    // }
 
-    React.useEffect( () => {
-        if( (cursorIcon.trim() === 'pointer' || cursorIcon.trim() === 'point')  && penState.isActive ) actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : false })
+    // React.useEffect( () => {
+    //     if( (cursorIcon.trim() === 'pointer' || cursorIcon.trim() === 'point')  && penState.isActive ) actionCreator(penDispatch, PEN_ACTION_TYPE.ACTIVE_CHANGE, { isActive : false })
 
-    }, [ cursorIcon ])
+    // }, [ cursorIcon ])
 
-    React.useEffect(() => {
-        setCursor();
-    }, [ cursorIcon, penState.isActive ])
+    // React.useEffect(() => {
+    //     setCursor();
+    // }, [ cursorIcon, penState.isActive ])
 
     return (
         <SidebarButton onClick={ changeCursor }>

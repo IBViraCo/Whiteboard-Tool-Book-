@@ -39,7 +39,7 @@ export default ({ isSidebar = false }) => {
         className="d-none"
         id="addBookInput"
         type="file"
-        multiple
+        // multiple
         accept={APP_CONFIG.acceptFileType}
       />
 

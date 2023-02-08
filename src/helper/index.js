@@ -68,7 +68,7 @@ const readFileData = (files) => {
     
     const imagesData = isImageFileEntered ? await convertToImage(files) :  await convertPdfToImages(file);
 
-    console.log(imagesData)
+    // console.log(imagesData)
     //dispatch to images 
     await actionCreator( bookDispatch, BOOK_ACTION_TYPE.FILE, imagesData );
 

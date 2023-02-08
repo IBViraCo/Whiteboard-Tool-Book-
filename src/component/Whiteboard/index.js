@@ -1,7 +1,7 @@
 import { WhiteboardContainer, WhiteBoard } from "./style";
 import PenContext from "../../contexts/PenContext";
 import BookContexts from "../../contexts/BookContexts";
-import React from "react";
+import React, { useEffect } from "react";
 import withPaintWrapper from "../../HOC/withPaintWrapper";
 import ThemeContexts from "../../contexts/ThemeContexts";
 import WhiteboardContext from "../../contexts/WhiteboardContext";
@@ -33,12 +33,49 @@ const Whiteboard = ({
     const [ context, setContext ] = React.useState();
     const[isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground,setIsModalShape , isModalShape] =modals.useModalsContext()
 
+React.useEffect(()=>{
 
-  
+    const canvas = document.getElementById('whiteboardCanvas');
+    canvasEl.current = canvas;   
+    // console.log(canvas)
+    const ctx = canvas.getContext('2d')
+    let img = new Image()
+    img.setAttribute("id", "id_you_like");
+    // console.log(canvas.width)
+    // console.log(canvas.height)
+    canvas.style.border = '1px solid red'
+    img.style.cursor = 'pointer'
+    img.src = bookState.bookData[0]
+    let currentX = canvas.width/2
+    let currentY = canvas.height/2
+
+
+    img.onload = function(){
+        ctx.drawImage(img , currentX - img.width/2  ,currentY - img.height/2)
+    }
+
+    
+    },[bookState])
+
+    
+    
+   
+    // canvas.onmousedown = (e) => {
+    //         console.log('mousedown' ,e.layerX , e.layerY)
+    // }
+    // canvas.onmouseup = (e) => {
+    //         console.log('mouseup' ,e.layerX , e.layerY)
+    // }
+    // canvas.onmouseout = (e) => {
+    //         console.log('mouseout' ,e.layerX , e.layerY)
+    // }
+
     const setCanvas = () => {
         const canvas = document.getElementById('whiteboardCanvas');
         canvasEl.current = canvas;                                     
     }
+
+   
 
 
 

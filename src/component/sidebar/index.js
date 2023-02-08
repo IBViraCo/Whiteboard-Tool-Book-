@@ -21,7 +21,7 @@ import { faPenNib } from '@fortawesome/free-solid-svg-icons';///////////////////
 import MainToolbar from './PenIcon/MainToolbar';
 
 
-export default  () => {
+export default   () => {
     const [ bookState ]       = BookContexts.useBookContext();
 
 
@@ -52,7 +52,7 @@ export default  () => {
 
             {/* <RecorderIcon /> */}
 
-            {/* <Cursor /> */}
+            <Cursor />
             
 
             {/* <ThemIcon /> */}

@@ -20,7 +20,8 @@ export const BookContainer = styled(Col).attrs({
     box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(205, 205, 236, 0.25), inset 5px 5px 10px rgba(205, 205, 236, 0.5), inset -5px -5px 10px #FFFFFF;
     display: flex;
     justify-content: center;
-    background-color: ${APP_STYLES.colors.background};
+    /* background-color: ${APP_STYLES.colors.background}; */
+    background-color:#fff;
     /* background-color:red; */
 `
 

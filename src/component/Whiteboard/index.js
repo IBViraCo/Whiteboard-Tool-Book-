@@ -29,35 +29,38 @@ const Whiteboard = ({
     const [ theme ]                 = ThemeContexts.useThemeContext();
 
     const canvasEl = React.useRef();
+
     
     const [ context, setContext ] = React.useState();
     const[isModalColor , setIsModalColor ,isModalBackground , setIsModalBackground,setIsModalShape , isModalShape] =modals.useModalsContext()
 
 React.useEffect(()=>{
-
     const canvas = document.getElementById('whiteboardCanvas');
     canvasEl.current = canvas;   
     // console.log(canvas)
     const ctx = canvas.getContext('2d')
-    let img = new Image()
-    img.setAttribute("id", "id_you_like");
-    // console.log(canvas.width)
-    // console.log(canvas.height)
-    canvas.style.border = '1px solid red'
-    img.style.cursor = 'pointer'
-    img.src = bookState.bookData[0]
-    let currentX = canvas.width/2
-    let currentY = canvas.height/2
-
-
-    img.onload = function(){
-        ctx.drawImage(img , currentX - img.width/2  ,currentY - img.height/2)
-    }
-
+        let img = new Image()
+        img.setAttribute("id", `id_you_like`);
+        // console.log(canvas.width)
+        // console.log(canvas.height)
+        canvas.style.border = '1px solid blue'
+        img.style.cursor = 'pointer'
+        img.src = bookState.bookData[0]
+        let currentX = canvas.width/2
+        let currentY = canvas.height/2
+        let centerPageX = currentX - img.width/2
+        let centerPageY = currentY - img.height/2
+        
+            img.onload = function(){
+                ctx.drawImage(img , 0 ,0 )
+            }
     
     },[bookState])
 
-    
+
+
+
+
     
    
     // canvas.onmousedown = (e) => {
@@ -72,7 +75,8 @@ React.useEffect(()=>{
 
     const setCanvas = () => {
         const canvas = document.getElementById('whiteboardCanvas');
-        canvasEl.current = canvas;                                     
+        canvasEl.current = canvas;    
+
     }
 
    
@@ -157,8 +161,12 @@ React.useEffect(()=>{
     }
 
     const chooseEvents = penState.tool === 'text' ? { ...onTextEvents } : { ...onPenEvents }
+
+ 
+
     return (
     <>
+  
   
         <WhiteboardContainer id='whiteboardContainer'> 
             {children} 
@@ -172,7 +180,7 @@ React.useEffect(()=>{
                    
                     </WhiteBoard> 
              { textInputs } 
-             <Pagination/>
+             <Pagination />
             
          </WhiteboardContainer>
         </>

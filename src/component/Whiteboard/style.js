@@ -17,7 +17,6 @@ export const WhiteboardContainer = styled(Col).attrs({
     justify-content: center;
     padding: 0.5rem;
     background-color: ${APP_STYLES.colors.background};
-    background-color:gray;
     width:50%;
 `
 
@@ -28,7 +27,7 @@ export const WhiteBoard = styled.canvas.attrs({
 })`
     background-repeat: no-repeat; 
     background-position: center; 
-    width: 100%; 
+    width: 95%; 
     height: 100%;
     background-color: ${ ({ theme }) => selectTheme(theme) };
     border-radius: 7px;

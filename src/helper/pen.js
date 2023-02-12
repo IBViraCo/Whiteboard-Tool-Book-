@@ -20,7 +20,7 @@ const initContext = (canvasEl) => {
 
     canvasContext.canvas.width  = canvasEl.offsetWidth;
     canvasContext.canvas.height = canvasEl.offsetHeight;
-
+        
     return canvasContext;
 }
 

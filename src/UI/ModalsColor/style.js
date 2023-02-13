@@ -15,5 +15,4 @@ border-radius: 21px;
 display: flex;
 justify-content: center;
 align-items: center;
-
 ` 

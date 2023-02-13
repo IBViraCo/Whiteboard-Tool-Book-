@@ -6,8 +6,13 @@ import star from '../../assets/icons/Star 1.svg'
 import circle from '../../assets/icons/circle.svg'
 import square from '../../assets/icons/Square.svg'
 import triangle from '../../assets/icons/triangle.svg'
+import configForCreateCircle from '../../helper/shape'
 
-const DetailModalsShape = () => {
+
+const DetailModalsShape = ({
+  circles,
+  Circle
+}) => {
   return (
     <>
       <CircleColorContainer
@@ -27,13 +32,21 @@ const DetailModalsShape = () => {
           <img src={triangle}/>
         </CircleColorPicker>
 
+          <div id='my-create'>
         <CircleColorPicker
+        
           onClick={(e) => {
+            
             e.stopPropagation()
+              const newCircle =   new Circle(350, 350 ,50 , 'white' , 'black')
+              circles.push(newCircle)
+                newCircle.draw()
           }}
         >
           <img src={circle}/>
         </CircleColorPicker>
+
+          </div>
 
         <CircleColorPicker
           onClick={(e) => {
@@ -70,4 +83,4 @@ const DetailModalsShape = () => {
     </>
   )
 }
-export default DetailModalsShape
+export default configForCreateCircle(DetailModalsShape)

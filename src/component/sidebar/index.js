@@ -22,6 +22,10 @@ import MainToolbar from './PenIcon/MainToolbar';
 
 
 export default   () => {
+
+
+
+    console.log('toolbar')
     const [ bookState ]       = BookContexts.useBookContext();
 
 

@@ -24,6 +24,8 @@ import { ToolsItem } from './component/sidebar/PenIcon/style';
 import getNewPosition from './helper/pen'
 
 function App() {
+
+
   
   const [ bookState, bookDispatch ]     = useBookState()
   const [ penState, penDispatch ]       = usePenState();
@@ -43,7 +45,6 @@ function App() {
   }
 
  
-  
 
   //check access camera and init
   // React.useEffect(() => {
@@ -54,6 +55,7 @@ function App() {
 // const infoHandler = () => {
   
 // }
+
 
 
 

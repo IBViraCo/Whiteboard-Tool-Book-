@@ -26,7 +26,7 @@ const Whiteboard = ({
     const { drawLine, initContext}  = pen;
     const [ penState ]              = PenContext.usePenContext();
     const [ bookState ]             = BookContexts.useBookContext();
-    const [ theme ]                 = ThemeContexts.useThemeContext();
+    const [ theme  ]                 = ThemeContexts.useThemeContext();
 
     const canvasEl = React.useRef();
 
@@ -168,7 +168,7 @@ React.useEffect(()=>{
     return (
     <>
   
-  
+        
         <WhiteboardContainer id='whiteboardContainer'> 
             {children} 
             <WhiteBoard                                  
